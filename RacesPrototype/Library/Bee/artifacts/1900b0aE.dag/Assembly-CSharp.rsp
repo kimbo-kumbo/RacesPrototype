@@ -365,6 +365,7 @@
 "Assets/Scripts/StreamScripts/WheelsComponent.cs"
 "Assets/Scripts/Timer.cs"
 "Assets/Scripts/СountdownTimer.cs"
+"Assets/Statistics_Controller.cs"
 -langversion:9.0
 
 /deterministic
