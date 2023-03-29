@@ -11,10 +11,10 @@ namespace RacePrototype
         public float Acceleration { get; protected set; }
         public float Rotate { get; protected set; }
 
-        public event Action<bool> OnHandBreakeEvent;
+        public event Action<bool> OnHandBrakeEvent;
 
         protected abstract void FixedUpdate();       
-        protected void CallHandBreake(bool value)
-            => OnHandBreakeEvent?.Invoke(value);
+        protected void CallHandBrake(bool value)
+            => OnHandBrakeEvent?.Invoke(value);
     }
 }

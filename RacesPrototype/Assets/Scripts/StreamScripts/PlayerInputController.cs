@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RacePrototype
@@ -29,7 +27,12 @@ namespace RacePrototype
         private void Awake()
             => _controls = new CarControl();
         private void OnEnable()
-            => _controls.Car.Enable();
+        {
+            _controls.Car.Enable();
+            _controls.Car.HandBrake.performed += context => CallHandBrake(true);
+            _controls.Car.HandBrake.canceled += context => CallHandBrake(false);
+        }
+
         private void OnDisable()
             => _controls.Car.Disable();
         private void OnDestroy()

@@ -28,7 +28,7 @@ namespace RacePrototype
 
         private void OnHandBrake(bool value)
         {
-            if(value)
+            if (value)
             {
                 foreach (var wheel in _wheels.GetRearWheels)
                 {
@@ -50,12 +50,12 @@ namespace RacePrototype
             _input = GetComponent<BaseInputController>();
             _rigidbody = GetComponent<Rigidbody>();
 
-            _input.OnHandBreakeEvent += OnHandBrake;
+            _input.OnHandBrakeEvent += OnHandBrake;
         }
 
         private void OnDestroy()
         {
-            _input.OnHandBreakeEvent -= OnHandBrake;
+            _input.OnHandBrakeEvent -= OnHandBrake;
         }
     }
 }
