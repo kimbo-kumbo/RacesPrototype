@@ -351,9 +351,11 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/MainMenu_Controllert.cs"
+"Assets/Body_Marker.cs"
 "Assets/Scripts/Camera_Controller.cs"
 "Assets/Scripts/Enums.cs"
+"Assets/Scripts/FinishTrigger.cs"
+"Assets/Scripts/MainMenu_Controllert.cs"
 "Assets/Scripts/StreamScripts/BaseInputController.cs"
 "Assets/Scripts/StreamScripts/BotInputController.cs"
 "Assets/Scripts/StreamScripts/CarComponent.cs"
@@ -361,6 +363,8 @@
 "Assets/Scripts/StreamScripts/PlayerInputController.cs"
 "Assets/Scripts/StreamScripts/Speedometr.cs"
 "Assets/Scripts/StreamScripts/WheelsComponent.cs"
+"Assets/Scripts/Timer.cs"
+"Assets/Scripts/СountdownTimer.cs"
 -langversion:9.0
 
 /deterministic
