@@ -10,7 +10,7 @@ namespace RacePrototype
         {
             if (other.GetComponent<Body_Marker>() /*|| other.GetComponent<NewPlayer>() */is null)
                 return;
-            //OnEnableStaticsPanel(); временно отключил
+            OnEnableStaticsPanel();
             Debug.Log("Finish");
         }
 

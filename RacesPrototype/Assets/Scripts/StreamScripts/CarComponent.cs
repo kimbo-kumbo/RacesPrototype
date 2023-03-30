@@ -34,13 +34,13 @@ namespace RacePrototype
                 if (_input.Acceleration > 0)
                 {
                     _movingForward = true;
-                    OnHandBrake(false);
+                    OnBrake(false);
                     torque = _input.Acceleration * _torque;// / 2f;
                 }
                 else
                 {
                     _movingForward = false;
-                    OnHandBrake(false);
+                    OnBrake(false);
                     torque = -_input.Acceleration * _torque;// / 2f;
                 }
             }
@@ -48,24 +48,24 @@ namespace RacePrototype
             {
                 if (_input.Acceleration > 0)
                 {
-                    OnHandBrake(false);
+                    OnBrake(false);
                     torque = _input.Acceleration * _torque;// / 2f;
                 }
                 else
                 {
-                    OnHandBrake(true);
+                    OnBrake(true);
                 }
             }
             else
             {
                 if (_input.Acceleration < 0)
                 {
-                    OnHandBrake(false);
+                    OnBrake(false);
                     torque = _input.Acceleration * _torque;// / 2f;
                 }
                 else
                 {
-                    OnHandBrake(true);
+                    OnBrake(true);
                 }
             }
 
@@ -79,6 +79,23 @@ namespace RacePrototype
         }
 
         private void OnHandBrake(bool value)
+        {
+            if (value)
+            {
+                foreach (var wheel in _wheels.GetRearWheels)
+                {
+                    wheel.brakeTorque = _handBrakeTorque;
+                    wheel.motorTorque = 0f;
+                }
+            }
+            else
+            {
+                foreach (var wheel in _wheels.GetRearWheels)
+                    wheel.brakeTorque = 0f;
+            }
+        }
+
+        private void OnBrake(bool value)
         {
             if (value)
             {
