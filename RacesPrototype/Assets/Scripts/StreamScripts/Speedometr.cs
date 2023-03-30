@@ -22,22 +22,27 @@ namespace RacePrototype
         private Text _text;
         [SerializeField]
         private Transform _player;
+        private float _speed;
 
         private void Start()
         {
             StartCoroutine(Speed());
         }
 
+        public float GetSpeed()
+        { 
+            return _speed;
+        }
         private IEnumerator Speed()
         {
             var prevPos = _player.position;
             while (true) 
             {
                 var distance = Vector3.Distance(prevPos, _player.position);
-                var speed = (float)System.Math.Round(distance / _delay * c_convertMeterInSecFromKmInH, 1);
+                _speed = (float)System.Math.Round(distance / _delay * c_convertMeterInSecFromKmInH, 1);
 
-                _text.color = Color.Lerp(_minColor, _maxColor, speed/_maxSpeed);
-                _text.text = speed.ToString();
+                _text.color = Color.Lerp(_minColor, _maxColor, _speed / _maxSpeed);
+                _text.text = _speed.ToString();
                 prevPos = _player.position;
                 yield return new WaitForSeconds(_delay);
             

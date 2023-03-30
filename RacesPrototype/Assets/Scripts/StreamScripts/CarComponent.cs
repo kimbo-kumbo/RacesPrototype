@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RacePrototype
@@ -10,27 +11,78 @@ namespace RacePrototype
         private WheelsComponent _wheels;
         private BaseInputController _input;
         private Rigidbody _rigidbody;
+        private Speedometr _speedometr;
 
         [SerializeField, Range(5f, 60f)]
         private float _maxSteerAngle = 25f;
         [SerializeField]
         private float _torque = 2500f;
-        [SerializeField]
+        //[SerializeField]
         private float _handBrakeTorque = float.MaxValue;
+        [SerializeField]
+        private Vector3 _centerOfMass = Vector3.zero;
+
+        private bool _movingForward;
 
         private void FixedUpdate()
         {
             _wheels.UpdateVisual(_input.Rotate * _maxSteerAngle);
-            var torque = _input.Acceleration * _torque / 2f;
-            foreach (var wheel in _wheels.GetFrontWheels)
+            float torque = 0;
+
+            if (_speedometr.GetSpeed() == 0)
+            {
+                if (_input.Acceleration > 0)
+                {
+                    _movingForward = true;
+                    OnHandBrake(false);
+                    torque = _input.Acceleration * _torque;// / 2f;
+                }
+                else
+                {
+                    _movingForward = false;
+                    OnHandBrake(false);
+                    torque = -_input.Acceleration * _torque;// / 2f;
+                }
+            }
+            if (_movingForward)
+            {
+                if (_input.Acceleration > 0)
+                {
+                    OnHandBrake(false);
+                    torque = _input.Acceleration * _torque;// / 2f;
+                }
+                else
+                {
+                    OnHandBrake(true);
+                }
+            }
+            else
+            {
+                if (_input.Acceleration < 0)
+                {
+                    OnHandBrake(false);
+                    torque = _input.Acceleration * _torque;// / 2f;
+                }
+                else
+                {
+                    OnHandBrake(true);
+                }
+            }
+
+
+            //foreach (var wheel in _wheels.GetFrontWheels)//сделал задний привод. это ж мустанг ))
+            foreach (var wheel in _wheels.GetRearWheels)
+            {
                 wheel.motorTorque = torque;
+            }
+
         }
 
         private void OnHandBrake(bool value)
         {
             if (value)
             {
-                foreach (var wheel in _wheels.GetRearWheels)
+                foreach (var wheel in _wheels.GetAllWheels)
                 {
                     wheel.brakeTorque = _handBrakeTorque;
                     wheel.motorTorque = 0f;
@@ -38,7 +90,7 @@ namespace RacePrototype
             }
             else
             {
-                foreach(var wheel in _wheels.GetRearWheels)
+                foreach (var wheel in _wheels.GetAllWheels)
                     wheel.brakeTorque = 0f;
             }
         }
@@ -49,6 +101,9 @@ namespace RacePrototype
             _wheels = GetComponent<WheelsComponent>();
             _input = GetComponent<BaseInputController>();
             _rigidbody = GetComponent<Rigidbody>();
+            _rigidbody.centerOfMass = _centerOfMass;//центр массы
+
+            _speedometr = FindObjectOfType<Speedometr>();
 
             _input.OnHandBrakeEvent += OnHandBrake;
         }
