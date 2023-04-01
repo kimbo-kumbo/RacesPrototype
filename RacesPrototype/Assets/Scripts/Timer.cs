@@ -31,6 +31,10 @@ public class Timer : MonoBehaviour
     {
         return _interval.Minutes + ":" + _interval.Seconds + ":" + _interval.Milliseconds / 100;
     }
+    public float ConvertTimeElapsedToFloat()
+    {
+        return _interval.Minutes * 60 + _interval.Seconds + ((float)(_interval.Milliseconds / 100))/10;
+    }
 
     private void CalculateTimeElapsed()
     {
