@@ -5,7 +5,7 @@ namespace RacePrototype
 {
     public class FinishTrigger : MonoBehaviour
     {
-        private Statistics_Controller _statisticsController;
+        [SerializeField] private Statistics_Controller _statisticsController;
         private Timer _timer;
         private void OnTriggerEnter(Collider other)
         {
@@ -28,7 +28,7 @@ namespace RacePrototype
 
         private void Start()
         {
-            _statisticsController = FindObjectOfType<Statistics_Controller>();
+            //_statisticsController = FindObjectOfType<Statistics_Controller>();
             _timer = FindObjectOfType<Timer>();
         }
 
