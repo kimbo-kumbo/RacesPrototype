@@ -7,7 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace RacePrototype
 {
-    public class MainMenu_Controllert : MonoBehaviour
+    public class MainMenu_Controllert : Base_Controller
     {
 
         [SerializeField] private Button _start;
@@ -27,20 +27,6 @@ namespace RacePrototype
             _start.onClick.RemoveListener(delegate { LoadScene(SceneExample.Drive); });
             _tuning.onClick.RemoveListener(delegate { LoadScene(SceneExample.Tuning); });
             _exit.onClick.RemoveListener(delegate { LoadScene(SceneExample.Exit); });
-        }
-
-        private void LoadScene(SceneExample sceneExample)
-        {
-            if(sceneExample == SceneExample.Drive)
-                SceneManager.LoadScene(1);
-            if(sceneExample == SceneExample.Tuning)
-                SceneManager.LoadScene(2);
-            if(sceneExample == SceneExample.Exit)
-            {
-                Application.Quit();
-                Debug.Log("Выход из приложения");
-            }
-                
-        }
+        }       
     }
 }

@@ -352,6 +352,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Body_Marker.cs"
+"Assets/Scripts/Base_Controller.cs"
 "Assets/Scripts/Camera_Controller.cs"
 "Assets/Scripts/Enums.cs"
 "Assets/Scripts/FinishTrigger.cs"
@@ -364,6 +365,9 @@
 "Assets/Scripts/StreamScripts/Speedometr.cs"
 "Assets/Scripts/StreamScripts/WheelsComponent.cs"
 "Assets/Scripts/Timer.cs"
+"Assets/Scripts/TuningSO_Model.cs"
+"Assets/Scripts/Tuning_Controller.cs"
+"Assets/Scripts/Tuning_View.cs"
 "Assets/Scripts/СountdownTimer.cs"
 "Assets/Statistics_Controller.cs"
 -langversion:9.0
