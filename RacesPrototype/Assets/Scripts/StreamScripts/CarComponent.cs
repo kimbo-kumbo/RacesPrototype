@@ -22,8 +22,6 @@ namespace RacePrototype
         [SerializeField]
         private Vector3 _centerOfMass = Vector3.zero;
 
-        [SerializeField] private TuningSO_Model _tuningSOmodel;
-
         private bool _movingForward;
 
         private void FixedUpdate()
@@ -116,16 +114,13 @@ namespace RacePrototype
 
 
         private void Start()
-        {           
-
+        {
             _wheels = GetComponent<WheelsComponent>();
             _input = GetComponent<BaseInputController>();
-            //_rigidbody = GetComponent<Rigidbody>();
+            _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.centerOfMass = _centerOfMass;//центр массы
 
             _speedometr = FindObjectOfType<Speedometr>();
-
-            _maxSteerAngle = _tuningSOmodel.MaxSteerAngle;
 
             _input.OnHandBrakeEvent += OnHandBrake;
         }
