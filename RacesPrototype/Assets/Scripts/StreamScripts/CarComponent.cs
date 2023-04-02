@@ -124,18 +124,25 @@ namespace RacePrototype
             _rigidbody.centerOfMass = _centerOfMass;//центр массы
 
             _speedometr = FindObjectOfType<Speedometr>();
-
-
-
-
-            _maxSteerAngle = _tuningSOmodel.MaxSteerAngle;
-            _wheels.ChangeSettingsCar(_tuningSOmodel.DamperAvto);
+            
+            _wheels.ChangeSettingsWhealsColliderAvto(_tuningSOmodel);
+            GetSettingsRigidbodyAvto(_tuningSOmodel);
             _input.OnHandBrakeEvent += OnHandBrake;
         }
 
         private void OnDestroy()
         {
             _input.OnHandBrakeEvent -= OnHandBrake;
+        }
+
+        private void GetSettingsRigidbodyAvto(TuningSO_Model incomingValue)
+        {
+            _torque = incomingValue.Torque;
+            _centerOfMass = new Vector3(0, 0, incomingValue.CenterMassAvto);
+            _maxSteerAngle = incomingValue.MaxSteerAngle;
+            _rigidbody.mass = incomingValue.MassAvto;  
+
+
         }
     }
 }

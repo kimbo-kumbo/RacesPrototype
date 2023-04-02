@@ -652,8 +652,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSteerAngle: 30
-  _torque: 2500
+  _torque: 500
   _centerOfMass: {x: 0, y: 0, z: 0}
+  _tuningSOmodel: {fileID: 0}
 --- !u!1 &3962000127133956386
 GameObject:
   m_ObjectHideFlags: 0
