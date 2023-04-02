@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95bc058ab3df514c8c77630be0c4289, type: 3}
   m_Name: Tunning
   m_EditorClassIdentifier: 
-  speedMove: 14.6
-  _massAvto: 323
+  _damperAvto: 1
+  _maxSteerAngle: 42
