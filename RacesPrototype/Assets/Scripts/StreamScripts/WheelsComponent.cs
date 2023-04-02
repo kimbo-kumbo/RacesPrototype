@@ -37,9 +37,17 @@ namespace RacePrototype
             }
         }
 
-        private void Start()
+        private void OnEnable()
         {
             _allWheels = new WheelCollider[] { _frontWheels[0], _frontWheels[1], _rearWheels[0], _rearWheels[1] };
+        }        
+
+        public void ChangeSettingsCar(float incomingValue)
+        {
+            foreach(WheelCollider wheelCollider in _allWheels)
+            {
+                wheelCollider.wheelDampingRate = incomingValue;
+            }
         }
     }
 }

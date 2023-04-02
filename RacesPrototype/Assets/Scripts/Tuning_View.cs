@@ -21,9 +21,9 @@ public class Tuning_View : MonoBehaviour
         _tuningController.OnValueChange -= ChangeViewUIText;
     }
 
-    private void ChangeViewUIText(int currentStearAngle, int currentMassAvto)
+    private void ChangeViewUIText(int currentStearAngle, float currentDamperAvto)
     {
         _textStearAngle.text = currentStearAngle.ToString();
-        _textMassAvto.text = currentMassAvto.ToString();
+        _textMassAvto.text = currentDamperAvto.ToString();
     }
 }

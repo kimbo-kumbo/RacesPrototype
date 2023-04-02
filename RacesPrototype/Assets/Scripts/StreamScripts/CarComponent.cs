@@ -125,8 +125,11 @@ namespace RacePrototype
 
             _speedometr = FindObjectOfType<Speedometr>();
 
-            _maxSteerAngle = _tuningSOmodel.MaxSteerAngle;
 
+
+
+            _maxSteerAngle = _tuningSOmodel.MaxSteerAngle;
+            _wheels.ChangeSettingsCar(_tuningSOmodel.DamperAvto);
             _input.OnHandBrakeEvent += OnHandBrake;
         }
 
