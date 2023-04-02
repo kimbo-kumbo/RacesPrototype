@@ -13,7 +13,7 @@ namespace RacePrototype
     }
     public class Statistics_Controller : MonoBehaviour
     {
-        private List<Record> _records = new();
+        public List<Record> _records = new();
         public void SaveRecord(Record newrecord)
         {
             LoadRecords();
