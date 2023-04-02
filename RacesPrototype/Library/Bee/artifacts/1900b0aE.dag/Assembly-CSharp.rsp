@@ -371,6 +371,7 @@
 "Assets/Scripts/Tuning_Controller.cs"
 "Assets/Scripts/Tuning_View.cs"
 "Assets/Scripts/СountdownTimer.cs"
+"Assets/StatisticsPanel_Marker.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"

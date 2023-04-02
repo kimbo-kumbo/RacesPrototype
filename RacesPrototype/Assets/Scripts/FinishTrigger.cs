@@ -6,6 +6,7 @@ namespace RacePrototype
     public class FinishTrigger : MonoBehaviour
     {
         [SerializeField] private Statistics_Controller _statisticsController;
+        [SerializeField] private StatisticsPanel_Marker _statisticsPanel;
         private Timer _timer;
         private void OnTriggerEnter(Collider other)
         {
@@ -35,7 +36,7 @@ namespace RacePrototype
         private async void OnEnableStaticsPanel()
         {
             await Task.Delay(2000);
-            _statisticsController.gameObject.SetActive(true);            
+            _statisticsPanel.gameObject.SetActive(true);            
         }
     }
 }
